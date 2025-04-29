@@ -7,18 +7,19 @@ const { sequelize } = require('./models'); // Sequelize instance for DB connecti
 // Load environment variables
 dotenv.config();
 
-// Import all route files
-const founderRoutes = require('./routes/founders');
-const startupRoutes = require('./routes/startups');
-const newsRoutes = require('./routes/news');
-const jobRoutes = require('./routes/jobs');
-const newsletterRoutes = require('./routes/newsletter');
-
 const app = express();
 
 // Middlewares
 app.use(cors());
 app.use(express.json()); // Parse incoming JSON requests
+
+// Import all route files
+const authRoutes = require('./routes/auth');
+const founderRoutes = require('./routes/founders');
+const startupRoutes = require('./routes/startups');
+const newsRoutes = require('./routes/news');
+const jobRoutes = require('./routes/jobs');
+const newsletterRoutes = require('./routes/newsletter');
 
 // Base route
 app.get('/', (req, res) => {
@@ -26,6 +27,7 @@ app.get('/', (req, res) => {
 });
 
 // Mount API routes
+app.use('/api/auth', authRoutes);         // ✨ Added this line for auth
 app.use('/api/founders', founderRoutes);
 app.use('/api/startups', startupRoutes);
 app.use('/api/news', newsRoutes);
@@ -37,7 +39,6 @@ sequelize.authenticate()
     .then(() => console.log('✅ Database connected successfully.'))
     .catch((err) => console.error('❌ Unable to connect to the database:', err));
 
-
 // Server listener
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 app.listen(PORT, () => console.log(`🔥 Server running on http://localhost:${PORT}`));
