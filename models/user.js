@@ -7,6 +7,8 @@ module.exports = (sequelize) => {
         static associate(models) {
             // User can have many startups
             User.hasMany(models.Startup, { foreignKey: 'userId', as: 'startups' });
+            User.hasOne(models.Founder, { foreignKey: 'userId', as: 'founder' });
+
         }
     }
 

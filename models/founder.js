@@ -1,29 +1,51 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class Founder extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
     static associate(models) {
       Founder.hasMany(models.Startup, { foreignKey: 'founder_id' });
+      Founder.belongsTo(models.User, { foreignKey: 'userId', as: 'user' });
     }
   }
+
   Founder.init({
-    name: DataTypes.STRING,
-    email: DataTypes.STRING,
+    id: {
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+      allowNull: false,
+      primaryKey: true,
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     bio: DataTypes.TEXT,
     profile_image: DataTypes.STRING,
     linkedin: DataTypes.STRING,
-    createdAt: DataTypes.DATE
+    approved: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
+    userId: {
+      type: DataTypes.UUID,
+      allowNull: true,
+    },
+    createdAt: {
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW,
+      allowNull: false,
+    }
   }, {
     sequelize,
     modelName: 'Founder',
-    timestamps: false,
+    tableName: 'founders',
+    timestamps: false, // or true if you want Sequelize to auto-manage createdAt/updatedAt
   });
+
   return Founder;
 };

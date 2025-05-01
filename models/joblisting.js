@@ -14,16 +14,32 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   JobListing.init({
-    title: DataTypes.STRING,
+    id: {
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+      primaryKey: true
+    },
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     description: DataTypes.TEXT,
     location: DataTypes.STRING,
     link: DataTypes.STRING,
-    startup_id: DataTypes.UUID,
-    createdAt: DataTypes.DATE
+    startup_id: {
+      type: DataTypes.UUID,
+      allowNull: false
+    },
+    createdAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW
+    }
   }, {
     sequelize,
     modelName: 'JobListing',
-    timestamps: false,
+    tableName: 'job_listings',
+    timestamps: false
   });
   return JobListing;
 };
