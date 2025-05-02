@@ -4,8 +4,8 @@ const API_KEY = process.env.GNEWS_API_KEY; // replace with your API key
 const BASE_URL = 'https://gnews.io/api/v4';
 
 const fetchStartupNews = async () => {
-    const query = 'startup OR startups OR tech funding';
-    const url = `${BASE_URL}/search?q=startup&lang=en&country=ca&max=10&apikey=${API_KEY}`;
+    const query = 'startup OR startups OR tech funding OR technology OR funding OR venture capital OR mergers OR acquisitions';
+    const url = `${BASE_URL}/search?q=${query}&lang=en&country=ca&max=70&apikey=${API_KEY}`;
     try {
         const response = await axios.get(url);
         return response.data.articles || [];
