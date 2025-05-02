@@ -20,6 +20,7 @@ const startupRoutes = require('./routes/startups');
 const newsRoutes = require('./routes/news');
 const jobRoutes = require('./routes/jobs');
 const newsletterRoutes = require('./routes/newsletter');
+const externalNewsRoutes = require('./routes/externalNews');
 
 // Base route
 app.get('/', (req, res) => {
@@ -33,6 +34,8 @@ app.use('/api/startups', startupRoutes);
 app.use('/api/news', newsRoutes);
 app.use('/api/jobs', jobRoutes);
 app.use('/api/newsletter', newsletterRoutes);
+app.use('/external-news', externalNewsRoutes);
+
 
 // Test DB Connection
 sequelize.authenticate()

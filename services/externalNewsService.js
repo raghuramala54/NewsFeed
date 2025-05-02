@@ -1,0 +1,18 @@
+const axios = require('axios');
+
+const API_KEY = process.env.GNEWS_API_KEY; // replace with your API key
+const BASE_URL = 'https://gnews.io/api/v4';
+
+const fetchStartupNews = async () => {
+    const query = 'startup OR startups OR tech funding';
+    const url = `${BASE_URL}/search?q=startup&lang=en&country=ca&max=10&apikey=${API_KEY}`;
+    try {
+        const response = await axios.get(url);
+        return response.data.articles || [];
+    } catch (error) {
+        console.error('Error fetching startup news:', error.message);
+        throw new Error('Failed to fetch startup news');
+    }
+};
+
+module.exports = { fetchStartupNews };
