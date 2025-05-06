@@ -8,7 +8,7 @@ export const fetchStartups = async () => {
 };
 
 export const fetchNews = async () => {
-    const res = await fetch(`${BASE_URL}/news-articles`);
+    const res = await fetch(`${BASE_URL}/news`);
     if (!res.ok) throw new Error('Failed to fetch news');
     return res.json();
 };
@@ -18,3 +18,4 @@ export const fetchStartupById = async (id: string) => {
     if (!res.ok) return null;
     return res.json();
 };
+
