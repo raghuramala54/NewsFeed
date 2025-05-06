@@ -47,10 +47,12 @@ npm run dev
 
 ---
 
-🔒 Admin Seeding
+##  🔒 Admin Seeding
+
 Only authenticated admin users can seed real startup/news/founder/job data via protected routes. The backend supports JWT authentication for secure operations.
 
-📌 Roadmap
+##  📌 Roadmap
+
 ✅ Real-time startup news
 
 ✅ Detail view per article
