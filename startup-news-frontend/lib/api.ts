@@ -19,3 +19,8 @@ export const fetchStartupById = async (id: string) => {
     return res.json();
 };
 
+export const fetchNewsById = async (id: string) => {
+    const res = await fetch(`${BASE_URL}/news/${id}`);
+    if (!res.ok) return null;
+    return res.json();
+}
