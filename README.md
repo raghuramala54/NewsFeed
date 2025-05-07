@@ -10,7 +10,7 @@ A beautifully crafted full-stack web application that aggregates real-time news 
 
 - 📰 Fetches real-time startup news using GNews API.
 - 🔍 View detailed articles with startup metadata.
-- 🌿 Glassmorphic, earthy, and modern UI design.
+- 🌿 modern UI design with Next.js & TypeScript.
 - 👥 Founder and Startup entity architecture (backend complete).
 - 📬 Newsletter subscription, job listings, and profile creation (coming soon).
 - 🔐 Admin-only secure seeding with JWT authentication.
