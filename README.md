@@ -1,5 +1,5 @@
 # 🌱 Startup News Feed Platform
-A beautifully crafted full-stack web application that aggregates real-time news articles about startups, founders, and tech trends. Built with **Next.js 14 (App Router)**, **PostgreSQL**, and **Node.js (Express)**, this platform offers a modern, responsive, and glassmorphic UI with rich content integration.
+A beautifully crafted full-stack web application that aggregates real-time news articles about startups, founders, and tech trends. Built with **Next.js 14 (App Router)**, **PostgreSQL**, and **Node.js (Express)**, this platform offers a modern, responsive UI with rich content integration.
 
 ![Screenshot from 2025-05-06 14-10-09](https://github.com/user-attachments/assets/81772ca5-a0fe-451a-9901-122bae2b199b)
 
